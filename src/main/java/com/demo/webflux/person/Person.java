@@ -1,9 +1,7 @@
 package com.demo.webflux.person;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
+import io.swagger.v3.oas.annotations.media.Schema;
+import lombok.*;
 
 import java.util.UUID;
 
@@ -11,12 +9,23 @@ import java.util.UUID;
 @ToString
 @AllArgsConstructor
 @NoArgsConstructor
+@Builder
+@Schema(description = "All details about the Person")
 public class Person {
 
+  @Schema(description = "Id of the person. UUID format", example = "a4f66fe5-7c1b-4bcf-89b4-93d8fcbc52a4")
   private UUID id;
+
+  @Schema(description = "First name of the person", example = "Juan")
   private String firstName;
+
+  @Schema(description = "Last name of the person", example = "Garcia")
   private String lastName;
+
+  @Schema(description = "Country of the person", example = "Spain")
   private String country;
+
+  @Schema(description = "Age of the person")
   private int age;
 
   public Person(Person person, UUID id) {
